@@ -1,0 +1,20 @@
+name: "Unit Tests"
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install --fixed-lockfile
+      - run: bunx vitest --coverage.enabled true
+      - uses: davelosert/vitest-coverage-report-action@v2
+        if: always()
