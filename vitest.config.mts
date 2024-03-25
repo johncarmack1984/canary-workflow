@@ -6,17 +6,19 @@ export default defineConfig({
   plugins: [react()],
   test: {
     coverage: {
-      exclude: [
-        ".next/**/*",
-        "postcss.config.js",
-        "tailwind.config.ts",
-        "src/app/layout.tsx",
-        "src/components/**/*",
-      ],
       reporter: ["text", "json-summary", "json"],
       reportOnFailure: true,
     },
     environment: "jsdom",
+    exclude: [
+      ".next/**/*",
+      "node_modules/**/*",
+      "e2e/**/*",
+      "postcss.config.js",
+      "tailwind.config.ts",
+      "src/app/layout.tsx",
+      "src/components/**/*",
+    ],
   },
   resolve: {
     alias: {

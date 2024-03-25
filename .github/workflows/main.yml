@@ -12,5 +12,7 @@ permissions:
 jobs:
   unit-test:
     uses: ./.github/workflows/coverage.yml
+  playwright:
+    uses: ./.github/workflows/playwright.yml
   canary:
     uses: ./.github/workflows/canary.yml
